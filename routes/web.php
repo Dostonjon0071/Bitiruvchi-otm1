@@ -57,10 +57,10 @@ Route::get('/clear', function() {
 Route::get('/dashboard','UserController@dashboard')->name('admin.dashboard');
 
 
-Route::get('/','UserController@main')->name('main.table');
+Route::get('/','UserController@main')->name('main.tables');
 Route::get('/news','UserController@news')->name('new.table');
 Route::match(['get', 'post'],'/news/create', 'UserController@newsTable')->name('news.create');
-Route::get(['get', 'post'],'/news/kun.uz','UserController@news')->name('main.table');
+Route::get('/news','UserController@news')->name('new.table');
 
 
 Route::get('/login/form','UserController@login_blade')->name('admin.login');

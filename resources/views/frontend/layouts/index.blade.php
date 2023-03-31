@@ -30,7 +30,7 @@
           {{-- @if (Auth::user()->staff=="admin") --}}
           {{-- @dd(Auth::user()) --}}
             <li class="nav-item menu-items">
-                <a class="nav-link" href="{{route('main.table')}}">
+                <a class="nav-link" href="{{route('main.tables')}}">
                 <span class="menu-icon">
                     <i class="mdi mdi-speedometer"></i>
                 </span>

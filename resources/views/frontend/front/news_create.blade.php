@@ -7,9 +7,8 @@
 
 
 @section('content')
-<a href="kun.uz"> Yangiliklar </a>
 
-{{-- <div class="content-wrapper"> --}}
+<div class="content-wrapper">
     <div class="page-header">
       <h3 class="page-title"> Form elements </h3>
       <nav aria-label="breadcrumb">

@@ -25,7 +25,7 @@
           <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
             <div class="card col-lg-4 mx-auto">
               <div>
-                <a  href="{{route('main.table')}}" class="badge badge-outline-success m-2" style="float:right">Front</a>
+                <a  href="{{route  ('main.tables')}}" class="badge badge-outline-success m-2" style="float:right">Front</a>
               </div>
               <div class="card-body px-5 py-5">
                 <h3 class="card-title text-left mb-3">Login</h3>

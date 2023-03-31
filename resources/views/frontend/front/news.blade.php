@@ -9,7 +9,7 @@
 </style>
 @section('content')
 <div class="page-header text-black">
-    <h2 class=" text-blue ml-5 "> OTM bitiruvchilari uchun web-texnologiyalari asosida ma`lumotlar bazasini boshqarish tizimini yaratish >>  </h2>
+    <h2 class=" text-blue ml-5 "> OTM bitiruvchilari uchun web-texnologiyalari asosida ma`lumotlar bazasini boshqarish tizimini yaratish  </h2>
 </div>
 <div class="page-header">
     <h3 class="page-title"> Basic Tables </h3>
@@ -43,9 +43,7 @@
 
        @endforeach
    </div>
-   <div class="card m-2" align:center>
-    <a href="kun.uz"  style="background-color:Blue font-color:black" open{{ url('kun.uz', []) }}> Yangiliklar </a>
-  </div>
+
 </div>
 
 
