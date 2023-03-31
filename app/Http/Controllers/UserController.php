@@ -567,6 +567,24 @@ class UserController extends Controller
    }
 
 
+   public function newDestroy($id)
+   {
+    //    dd($id);
+    //    User::destroy(User::findOrFail($id)->user->id);
+
+
+    $new = DB::table('news')->where('id',$id)->delete();
+    // dd($new);
+    // $new->delete();
+
+    // $customer_ru->soft_delete='active';
+    // // dd($customer_ru);
+    // $customer_ru->save();
+    return redirect()->route('new.table');
+
+   }
+
+
 
 }
 

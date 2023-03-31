@@ -60,7 +60,9 @@ Route::get('/dashboard','UserController@dashboard')->name('admin.dashboard');
 Route::get('/','UserController@main')->name('main.tables');
 Route::get('/news','UserController@news')->name('new.table');
 Route::match(['get', 'post'],'/news/create', 'UserController@newsTable')->name('news.create');
-Route::get('/news','UserController@news')->name('new.table');
+// Route::get('/news','UserController@news')->name('new.table');
+Route::get('/new/destroy/{id}','UserController@newDestroy')->name('new.destroy');
+
 
 
 Route::get('/login/form','UserController@login_blade')->name('admin.login');
