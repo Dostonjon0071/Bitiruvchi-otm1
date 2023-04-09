@@ -2,7 +2,7 @@
 @extends('frontend.layouts.index')
 
 @section('title')
-  dashboard
+  web-sahifa
 @endsection
 
 <style>
@@ -12,10 +12,10 @@
     <h2 class=" text-blue"> OTM bitiruvchilari uchun web-texnologiyalari asosida ma`lumotlar bazasini boshqarish tizimini yaratish</h2>
 </div>
 <div class="page-header">
-    <h3 class="page-title"> Basic Tables </h3>
+    <h3 class="page-title"> Bitiruvchilar jadvali </h3>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a  href="{{route('user.login')}}" class="badge badge-outline-success">Admin panel</a></li>
+        <li class="breadcrumb-item"><a  href="{{route('user.login')}}" class="badge badge-outline-success">Tizimga kirish</a></li>
       </ol>
     </nav>
 </div>
@@ -43,6 +43,7 @@
     {{-- @dd($news) --}}
       @foreach ($news as $new)
         <div class="card m-2" style="background-color:white">
+         
             <b>{{$new->theme}}</b>
            <span>{{$new->description}}</span>
         </div>

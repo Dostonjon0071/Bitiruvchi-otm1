@@ -19,7 +19,7 @@
 </style>
 @section('content')
 <div class="page-header">
-    <h3 class="page-title"> Basic Tables </h3>
+    <h3 class="page-title"> Bitiruvchilar jadvali </h3>
     {{-- <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a  href="{{route('user.create')}}" class="badge badge-outline-success">Create New User</a></li>

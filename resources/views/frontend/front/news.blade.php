@@ -12,7 +12,7 @@
     <h2 class=" text-blue ml-5 "> OTM bitiruvchilari uchun web-texnologiyalari asosida ma`lumotlar bazasini boshqarish tizimini yaratish  </h2>
 </div>
 <div class="page-header">
-    <h3 class="page-title"> Basic Tables </h3>
+    <h3 class="page-title"> Bitiruvchilar jadvali</h3>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a  href="{{route('news.create')}}" class="badge badge-outline-success">Create News</a></li>
