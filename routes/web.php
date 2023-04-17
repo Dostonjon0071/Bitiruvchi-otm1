@@ -5,6 +5,7 @@
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
@@ -56,12 +57,15 @@ Route::get('/clear', function() {
 
 Route::get('/dashboard','UserController@dashboard')->name('admin.dashboard');
 
+Route::get('/talim','TalimEndController@home')->name('home');
+
 
 Route::get('/','UserController@main')->name('main.tables');
 Route::get('/news','UserController@news')->name('new.table');
 Route::match(['get', 'post'],'/news/create', 'UserController@newsTable')->name('news.create');
-// Route::get('/news','UserController@news')->name('new.table');
+Route::get('/news','UserController@news')->name('new.table');
 Route::get('/new/destroy/{id}','UserController@newDestroy')->name('new.destroy');
+Route::get('/talim','EducationEndController@home')->name('home');
 
 
 
@@ -73,6 +77,7 @@ Route::get('/logout', 'UserController@logout')->name('logout');
 //  product
 Route::get('/product/table','UserController@productTable')->name('product.tables');
 Route::match(['get', 'post'],'/product/table/create', 'UserController@create')->name('user.create');
+
 Route::get('/product/show/{id}','UserController@productShow')->name('product.show');
 Route::get('/product/table/edit/{id}','UserController@productEdit')->name('product.edit');
 Route::post('/product/table/update','UserController@productUpdate')->name('product.update');
@@ -82,8 +87,15 @@ Route::get('/product/table/destroy/{id}','UserController@productDestroy')->name(
 Route::get('/user/table/admin','UserController@productTableForUser')->name('product.tables_for_user');
 Route::get('/user/table/user','UserController@productTableForUserNew')->name('product.tables_for_user_new');
 Route::get('/user/table/front','UserController@productTableForUserNewFront')->name('product.tables_for_user_new_front');
+// Route::get('/education/table/front','UserController@productTableForeducationNewFront')->name('product.tables_for_education_new_front');
+Route::get('/logout', 'UserController@logout')->name('logout');
 
-
+//announcement->for admin
+Route::get('/announcement/table','AnnouncementController@index')->name('announcement.tables');
+Route::get('/announcement/show/{id}','AnnouncementController@show')->name('announcement.show');
+Route::get('/announcement/table/edit/{id}','AnnouncementController@productEdit')->name('announcement.edit');
+Route::post('/announcement/table/update','AnnouncementController@productUpdate')->name('announcement.update');
+Route::get('/announcement/table/destroy/{id}','AnnouncementController@productDestroy')->name('announcement.destroy');
 
 // // order
 // Route::get('/orders','OrderController@index')->name('orders.list');
