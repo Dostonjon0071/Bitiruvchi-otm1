@@ -53,27 +53,19 @@
                 <span class="menu-icon">
                     <i class="mdi mdi-playlist-play"></i>
                 </span>
-                <span class="menu-title">DB information</span>
+                <span class="menu-title">DB information </span>
                 </a>
             </li>
-          {{-- @endif --}}
-
-          {{-- <li class="nav-item menu-items">
-            <a class="nav-link" href="{{route('orders.list')}}">
+            <li class="nav-item menu-items">
+              <a class="nav-link" href="{{route('product.tables_for_user_new_front')}}">
+                  {{-- {{route('product.edit', $user->id)}} --}}
               <span class="menu-icon">
-                <i class="mdi mdi-playlist-play"></i>
+                  <i class="mdi mdi-playlist-play"></i>
               </span>
-              <span class="menu-title">Orders</span>
-            </a>
+              <span class="menu-title">Ta`lim </span>
+              </a>
           </li>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="{{route('categories.list')}}">
-              <span class="menu-icon">
-                <i class="mdi mdi-playlist-play"></i>
-              </span>
-              <span class="menu-title">Categories</span>
-            </a>
-          </li> --}}
+          
 
         </ul>
       </nav>

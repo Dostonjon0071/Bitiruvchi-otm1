@@ -9,7 +9,7 @@
 </style>
 @section('content')
 <div class="page-header text-black">
-    <h2 class=" text-blue ml-5 "> OTM bitiruvchilari uchun web-texnologiyalari asosida ma`lumotlar bazasini boshqarish tizimini yaratish  </h2>
+    <h2 class=" text-blue ml-5 "> OTM bitiruvchilari uchun web-texnologiyalari asosida ma`lumotlar bazasini boshqarish tizimini yaratish   </h2>
 </div>
 <div class="page-header">
     <h3 class="page-title"> Bitiruvchilar jadvali</h3>

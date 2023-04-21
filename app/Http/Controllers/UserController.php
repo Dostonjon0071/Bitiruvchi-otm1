@@ -397,7 +397,7 @@ class UserController extends Controller
 
    }
 
-
+    
 
    public function date_time()
    {
@@ -557,11 +557,21 @@ class UserController extends Controller
 
    }
 
+
    public function news()
    {
         $news=DB::table('news')->get();
         // return 'came';
         return view('frontend.front.news',compact('news'));
+
+
+   }
+
+   public function education()
+   {
+        $education=DB::table('education')->get();
+        // return 'came';
+        return view('frontend.front.education',compact('education'));
 
 
    }

@@ -80,7 +80,7 @@
             <span class="nav-link">Navigation</span>
           </li>
           @if (Auth::user()->staff=="admin")
-          {{-- @dd(Auth::user()) --}}
+            {{-- @dd(Auth::user()) --}}
             <li class="nav-item menu-items">
                 <a class="nav-link" href="{{route('admin.dashboard')}}">
                 <span class="menu-icon">
@@ -97,6 +97,14 @@
                 <span class="menu-title">Users</span>
                 </a>
             </li>
+            <li class="nav-item menu-items">
+              <a class="nav-link" href="{{route('announcement.tables')}}">
+              <span class="menu-icon">
+                  <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">Announcements</span>
+              </a>
+          </li>
           @endif
           @if (Auth::user()->staff=="user")
             <li class="nav-item menu-items">
