@@ -62,3 +62,36 @@
 @endsection
 
 
+
+
+
+
+
+
+@foreach ($data as $department)
+
+<div class="row my-3">
+  {{-- <div class="col-md-3">
+    <div class="card" style="border: 1px solid blue; padding:10px; background: #ffffff">
+      
+    </div>
+     
+  </div> --}}
+  <div class="col-md-12">
+    <div class="card" style="border: 1px solid blue;  background: #ffffff">
+      <div class="row ">
+        <div class="col-md-3 p-2" style="border-right: 1px solid blue;">
+        <a href="">{{$department->text}}</a>
+          
+        </div>
+       
+       
+      </div>
+     
+
+    </div>
+
+  </div>
+</div>
+
+@endforeach

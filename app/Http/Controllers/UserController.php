@@ -548,17 +548,16 @@ class UserController extends Controller
    public function main()
    {
         $users=User::get();
-        $news=DB::table('news')->get();
+        // $news=DB::table('news')->get();
         // dd($news);
         // dd($users);
-        return view('frontend.front.main',compact('users','news'));
+        return view('frontend.front.main',compact('users',));
 
    }
 
 
    public function news()
    {
-        $news=DB::table('news')->get();
 
         $data = DB::table('users')
             ->join('announcements', 'users.id', '=', 'announcements.user_id')

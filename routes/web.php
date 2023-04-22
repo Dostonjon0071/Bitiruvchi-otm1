@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 // use Telegram;
@@ -57,14 +59,16 @@ Route::get('/clear', function() {
 
 Route::get('/dashboard','UserController@dashboard')->name('admin.dashboard');
 
-Route::get('/talim','TalimEndController@home')->name('home');
+// Route::get('/talim','TalimEndController@home')->name('home');
 
 
 Route::get('/','UserController@main')->name('main.tables');
 Route::get('/news','UserController@news')->name('new.table');
+
 Route::match(['get', 'post'],'/news/create', 'UserController@newsTable')->name('news.create');
-Route::get('/new/destroy/{id}','UserController@newDestroy')->name('new.destroy');
-Route::get('/talim','EducationEndController@home')->name('home');
+// Route::get('/new/destroy/{id}','UserController@newDestroy')->name('new.destroy');
+Route::get('/departments','DepartmentController@index')->name('departments.index');
+Route::get('/departments/show/{id}','TeacherController@show')->name('department.show');
 
 
 

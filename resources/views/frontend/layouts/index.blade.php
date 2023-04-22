@@ -57,12 +57,11 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-              <a class="nav-link" href="{{route('product.tables_for_user_new_front')}}">
-                  {{-- {{route('product.edit', $user->id)}} --}}
+              <a class="nav-link" href="{{route('departments.index')}}">
               <span class="menu-icon">
                   <i class="mdi mdi-playlist-play"></i>
               </span>
-              <span class="menu-title">Ta`lim </span>
+              <span class="menu-title">Talim</span>
               </a>
           </li>
           
