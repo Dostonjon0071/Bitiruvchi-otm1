@@ -91,11 +91,12 @@ Route::get('/user/table/front','UserController@productTableForUserNewFront')->na
 Route::get('/logout', 'UserController@logout')->name('logout');
 
 //announcement->for admin
+Route::match(['get', 'post'],'/announcement/table/create', 'AnnouncementController@create')->name('announcement.create');
 Route::get('/announcement/table','AnnouncementController@index')->name('announcement.tables');
 Route::get('/announcement/show/{id}','AnnouncementController@show')->name('announcement.show');
-Route::get('/announcement/table/edit/{id}','AnnouncementController@productEdit')->name('announcement.edit');
-Route::post('/announcement/table/update','AnnouncementController@productUpdate')->name('announcement.update');
-Route::get('/announcement/table/destroy/{id}','AnnouncementController@productDestroy')->name('announcement.destroy');
+Route::get('/announcement/table/edit/{id}','AnnouncementController@edit')->name('announcement.edit');
+Route::post('/announcement/table/update','AnnouncementController@announcementUpdate')->name('announcement.update');
+Route::get('/announcement/table/destroy/{id}','AnnouncementController@destroy')->name('announcement.destroy');
 
 // // order
 // Route::get('/orders','OrderController@index')->name('orders.list');

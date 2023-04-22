@@ -237,8 +237,6 @@ class UserController extends Controller
 
 
 
-
-
    public function productShow($id)
    {
 

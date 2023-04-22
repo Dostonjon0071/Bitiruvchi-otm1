@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -26,11 +27,39 @@ class AnnouncementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
-    }
+ 
+     if ($request->method() == 'POST')
+     {
+         // dd($request->all());
+         // $request->validate([
+         //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+         // ]);
+ 
+         // dd($filename);
+ 
+         
+ 
+ 
+        $announcements=new Announcement();
+        $announcements->text=$request->text;
 
+          $announcements->save();
+         //    dd($product);
+         //    $product=ProductUz::create([
+         //     'name'=>$request->name_uz,
+         //     'price'=>$request->price,
+         //     'foto'=>$filename,
+         //     'category_id'=>$request->category_id,
+         //     'description'=>$request->description_uz,
+         //  ]);
+         //    dd($product);
+     return redirect()->route("announcement.tables");
+     }
+         return view('admin.announcement.create');
+ 
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -50,20 +79,12 @@ class AnnouncementController extends Controller
      */
     public function show($id)
     {
-        
+        $announcement=DB::table('announcements')->where('id',$id)->first();
 
-        
- // $product_ru=ProductRu::where('id',$id)->first();
- // // $product_uz=ProductUz::where('id',$id)->first();
- // $category=CategoryRu::where('id',$product_ru->category_id)->first();
-//  $user=AnnouncementController::where('id',$id)->first();
-
- $announcement=DB::table('announcements')->where('id',$id)->first();
-
- //    dd($id);
- //    return 'came';
- return view('admin.announcement.show',compact('announcement'));
-//  return view('admin.forms.product_show',compact('announcement'));
+        //    dd($id);
+        //    return 'came';
+        return view('admin.announcement.show',compact('announcement'));
+        //  return view('admin.forms.product_show',compact('announcement'));
 
     }
 
@@ -74,8 +95,12 @@ class AnnouncementController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {                
+        $announcement=DB::table('announcements')->where('id',$id)->first();
+
+        //    dd($id);
+        //    return 'came';
+        return view('admin.announcement.edit',compact('announcement'));
     }
 
     /**
@@ -85,9 +110,16 @@ class AnnouncementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function announcementUpdate(Request $request)
     {
-        //
+        $announcement=Announcement::where('id',$request->announcement_id)->first();
+        
+        $announcement->text=$request->description;
+        // dd($announcement->text);
+        $announcement->save();
+        return redirect()->route("announcement.tables");
+
+
     }
 
     /**
@@ -98,7 +130,9 @@ class AnnouncementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $announcement=Announcement::findOrFail($id);
+        $announcement->delete();
+        return redirect()->route('announcement.tables');
     }
 }
 

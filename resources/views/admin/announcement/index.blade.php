@@ -22,7 +22,7 @@
     <h3 class="page-title">Bitiruvchilar jadvali</h3>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a  href="{{route('user.create')}}" class="badge badge-outline-success">yangi elon yaratish</a></li>
+        <li class="breadcrumb-item"><a  href="{{route('announcement.create')}}" class="badge badge-outline-success">yangi elon yaratish</a></li>
       </ol>
     </nav>
 </div>

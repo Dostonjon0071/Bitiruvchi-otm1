@@ -32,7 +32,11 @@
                 {{$announcement->created_at}}
             </div>
             <div class="col-md-9">
+              <div class="card" style="border: 1px solid blue; padding:10px">
                 {{$announcement->text}}
+
+              </div>
+
             </div>
           </div>
         </div>
