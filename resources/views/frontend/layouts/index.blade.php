@@ -42,7 +42,7 @@
                 <span class="menu-icon">
                     <i class="mdi mdi-playlist-play"></i>
                 </span>
-                <span class="menu-title">New</span>
+                <span class="menu-title">Yangiliklar</span>
                 </a>
             </li>
           {{-- @endif --}}

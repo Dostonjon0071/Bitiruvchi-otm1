@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Announcement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class AnnouncementController extends Controller
@@ -20,6 +21,13 @@ class AnnouncementController extends Controller
         // dd($announcements);
         return view('admin.announcement.index',compact('announcements'));
 
+    }
+    public function userAnnouncement(){
+        // dd(auth()->id());
+
+          $announcements=DB::table('announcements')->where('user_id',auth()->id())->get();
+        // dd($announcements);
+        return view('admin.announcement.index',compact('announcements'));
     }
 
     /**
@@ -43,19 +51,20 @@ class AnnouncementController extends Controller
  
  
         $announcements=new Announcement();
+
+        $announcements->user_id=auth()->id();
         $announcements->text=$request->text;
 
-          $announcements->save();
-         //    dd($product);
-         //    $product=ProductUz::create([
-         //     'name'=>$request->name_uz,
-         //     'price'=>$request->price,
-         //     'foto'=>$filename,
-         //     'category_id'=>$request->category_id,
-         //     'description'=>$request->description_uz,
-         //  ]);
-         //    dd($product);
-     return redirect()->route("announcement.tables");
+        $announcements->save();
+
+
+
+        if (Auth::user()->staff=="admin") {
+            return redirect()->route("announcement.tables");
+        }
+        
+        return redirect()->route("announcement.tables_for_user");
+
      }
          return view('admin.announcement.create');
  
@@ -117,7 +126,11 @@ class AnnouncementController extends Controller
         $announcement->text=$request->description;
         // dd($announcement->text);
         $announcement->save();
-        return redirect()->route("announcement.tables");
+        if (Auth::user()->staff=="admin") {
+            return redirect()->route("announcement.tables");
+        }
+        
+        return redirect()->route("announcement.tables_for_user");
 
 
     }
@@ -132,7 +145,14 @@ class AnnouncementController extends Controller
     {
         $announcement=Announcement::findOrFail($id);
         $announcement->delete();
-        return redirect()->route('announcement.tables');
+
+
+        if (Auth::user()->staff=="admin") {
+            return redirect()->route("announcement.tables");
+        }
+        
+        return redirect()->route("announcement.tables_for_user");
+
     }
 }
 

@@ -102,11 +102,11 @@
               <span class="menu-icon">
                   <i class="mdi mdi-playlist-play"></i>
               </span>
-              <span class="menu-title">Announcements</span>
+              <span class="menu-title">Elonlar</span>
               </a>
           </li>
           @endif
-          @if (Auth::user()->staff=="user")
+          {{-- @if (Auth::user()->staff=="user") --}}
             <li class="nav-item menu-items">
                 <a class="nav-link" href="{{route('product.tables_for_user_new')}}">
                 <span class="menu-icon">
@@ -115,7 +115,17 @@
                 <span class="menu-title">User</span>
                 </a>
             </li>
-          @endif
+
+            <li class="nav-item menu-items">
+              <a class="nav-link" href="{{route('announcement.tables_for_user')}}">
+              <span class="menu-icon">
+                  <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Elonlar</span>
+              </a>
+          </li>
+
+          {{-- @endif --}}
 
           {{-- <li class="nav-item menu-items">
             <a class="nav-link" href="{{route('orders.list')}}">

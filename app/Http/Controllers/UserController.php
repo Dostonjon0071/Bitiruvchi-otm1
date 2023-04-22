@@ -559,8 +559,17 @@ class UserController extends Controller
    public function news()
    {
         $news=DB::table('news')->get();
+
+        $data = DB::table('users')
+            ->join('announcements', 'users.id', '=', 'announcements.user_id')
+            ->select('users.group_id','users.full_name', 'announcements.text')
+            ->get();
+
+            // dd($data);
+
+
         // return 'came';
-        return view('frontend.front.news',compact('news'));
+        return view('frontend.front.news',compact('data'));
 
 
    }

@@ -63,7 +63,6 @@ Route::get('/talim','TalimEndController@home')->name('home');
 Route::get('/','UserController@main')->name('main.tables');
 Route::get('/news','UserController@news')->name('new.table');
 Route::match(['get', 'post'],'/news/create', 'UserController@newsTable')->name('news.create');
-Route::get('/news','UserController@news')->name('new.table');
 Route::get('/new/destroy/{id}','UserController@newDestroy')->name('new.destroy');
 Route::get('/talim','EducationEndController@home')->name('home');
 
@@ -97,6 +96,10 @@ Route::get('/announcement/show/{id}','AnnouncementController@show')->name('annou
 Route::get('/announcement/table/edit/{id}','AnnouncementController@edit')->name('announcement.edit');
 Route::post('/announcement/table/update','AnnouncementController@announcementUpdate')->name('announcement.update');
 Route::get('/announcement/table/destroy/{id}','AnnouncementController@destroy')->name('announcement.destroy');
+
+
+ //announcement->for user
+Route::get('/announcement/table/user','AnnouncementController@userAnnouncement')->name('announcement.tables_for_user');
 
 // // order
 // Route::get('/orders','OrderController@index')->name('orders.list');
