@@ -14,7 +14,11 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        
+          
+        $teacher=DB::table('teachers')->get();
+        // dd($teacher);
+        // dd($users);
+        return view('admin.teacher.index',compact('teacher'));
     }
 
     /**
@@ -47,6 +51,15 @@ class TeacherController extends Controller
     public function show($id)
     {
         $teachers=DB::table('teachers')->where('department_id',$id)->get();
+        // dd($teachers);
+        return view('frontend.front.teacher',compact('teachers'));
+    }
+    
+
+
+    public function adminShow($id)
+    {
+        $teachers=DB::table('teachers')->get();
         // dd($teachers);
         return view('frontend.front.teacher',compact('teachers'));
     }

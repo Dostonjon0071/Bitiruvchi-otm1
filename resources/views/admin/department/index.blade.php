@@ -22,7 +22,7 @@
     <h3 class="page-title">Bitiruvchilar jadvali</h3>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a  href="{{route('announcement.create')}}" class="badge badge-outline-success">yangi elon yaratish</a></li>
+        <li class="breadcrumb-item"><a  href="{{route('department.create')}}" class="badge badge-outline-success">yangi elon yaratish</a></li>
       </ol>
     </nav>
 </div>
@@ -42,21 +42,21 @@
                 </tr>
               </thead>
               <tbody>
-                @if ($announcements)
+                @if ($department)
 
-                @foreach($announcements as $key => $announcement)
-                    @if ($announcement != null)
-                    {{-- @dd($announcement) --}}
+                @foreach($department as $key => $department)
+                    @if ($department != null)
+                    {{-- @dd($department) --}}
                         <tr>
                             <td>{{ ($key+1)}}</td>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <td>{{$announcement->created_at}}</td>
+                                    <td>{{$department->created_at}}</td>
                                 </div>
                                 <div class="col-md-9">
                                     <td style="width: 500px;" >
-                                        {!! \Illuminate\Support\Str::words($announcement->text, 10,'....')  !!}
-                                        {{-- {{$announcement->text}} --}}
+                                        {!! \Illuminate\Support\Str::words($department->department, 10,'....')  !!}
+                                        {{-- {{$department->text}} --}}
                                     </td>
                                 </div>
                             </div>
@@ -64,13 +64,13 @@
                             
                             
                             <td>
-                                <a href="{{route('announcement.show', $announcement->id)}}" class="btn btn-soft-danger btn-icon btn-circle btn-sm"  title="show">
+                                <a href="{{route('admin_department.show', $department->id)}}" class="btn btn-soft-danger btn-icon btn-circle btn-sm"  title="show">
                                     <i  class="icon-md mdi mdi-eye text-primary "></i>
                                 </a>
-                                <a href="{{route('announcement.edit', $announcement->id)}}" class="btn btn-soft-danger btn-icon btn-circle btn-sm"  title="edit">
+                                <a href="{{route('department.edit', $department->id)}}" class="btn btn-soft-danger btn-icon btn-circle btn-sm"  title="edit">
                                     <i  class="icon-md mdi mdi-table-edit  text-primary "></i>
                                 </a>
-                                <a href="{{route('announcement.destroy', $announcement->id)}}" class="btn btn-soft-danger btn-icon btn-circle btn-sm"  title="delete">
+                                <a href="{{route('department.destroy', $department->id)}}" class="btn btn-soft-danger btn-icon btn-circle btn-sm"  title="delete">
                                     <i  class="icon-md mdi mdi-delete text-danger "></i>
                                 </a>
                             </td>

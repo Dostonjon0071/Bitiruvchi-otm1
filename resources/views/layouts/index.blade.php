@@ -100,13 +100,30 @@
             <li class="nav-item menu-items">
               <a class="nav-link" href="{{route('announcement.tables')}}">
               <span class="menu-icon">
-                  <i class="mdi mdi-playlist-play"></i>
+                  <i class="mdi mdi-speedometer"></i>
               </span>
               <span class="menu-title">Elonlar</span>
               </a>
-          </li>
+            </li>
+            <li class="nav-item menu-items">
+              <a class="nav-link" href="{{route('department.tables_for_admin')}}">
+              <span class="menu-icon">
+                  <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">Fakultitet</span>
+              </a>
+            </li>
+            <li class="nav-item menu-items">
+              <a class="nav-link" href="{{route('teacher.for_admin')}}">
+              <span class="menu-icon">
+                  <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">O'qituvchilar</span>
+              </a>
+            </li>
+
           @endif
-          {{-- @if (Auth::user()->staff=="user") --}}
+          @if (Auth::user()->staff=="user")
             <li class="nav-item menu-items">
                 <a class="nav-link" href="{{route('product.tables_for_user_new')}}">
                 <span class="menu-icon">
@@ -119,13 +136,12 @@
             <li class="nav-item menu-items">
               <a class="nav-link" href="{{route('announcement.tables_for_user')}}">
               <span class="menu-icon">
-                  <i class="mdi mdi-speedometer"></i>
+                  <i class="mdi mdi-speedomepter"></i>
               </span>
               <span class="menu-title">Elonlar</span>
               </a>
           </li>
-
-          {{-- @endif --}}
+           @endif
 
           {{-- <li class="nav-item menu-items">
             <a class="nav-link" href="{{route('orders.list')}}">

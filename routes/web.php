@@ -106,6 +106,28 @@ Route::get('/announcement/table/destroy/{id}','AnnouncementController@destroy')-
 Route::get('/announcement/table/user','AnnouncementController@userAnnouncement')->name('announcement.tables_for_user');
 
 // // order
+
+// departments->for admin  department.create'
+Route::match(['get', 'post'],'/department/table/create', 'DepartmentController@create')->name('department.create');
+Route::get('/department/table/admin','DepartmentController@adminIndex')->name('department.tables_for_admin');
+Route::get('/department/show/{id}','DepartmentController@show')->name('admin_department.show');
+Route::get('/department/table/edit/{id}','DepartmentController@edit')->name('department.edit');
+Route::post('/department/table/update','DepartmentController@update')->name('department.update');
+Route::get('/department/table/destroy/{id}','DepartmentController@destroy')->name('department.destroy');
+
+
+
+
+// teacher->for admin  department.create'
+Route::match(['get', 'post'],'/teacher/table/create', 'TeacherController@create')->name('teacher.create');
+Route::get('/teacher/table/admin','TeacherController@index')->name('teacher.for_admin');
+Route::get('/teacher/show/{id}','TeacherController@adminShow')->name('teacher.show');
+Route::get('/teacher/table/edit/{id}','TeacherController@edit')->name('teacher.edit');
+Route::post('/teacher/table/update','TeacherController@update')->name('teacher.update');
+Route::get('/teacher/table/destroy/{id}','TeacherController@destroy')->name('teacher.destroy');
+
+
+
 // Route::get('/orders','OrderController@index')->name('orders.list');
 // Route::get('/order/show/{id}','OrderController@orderShow')->name('order.show');
 
