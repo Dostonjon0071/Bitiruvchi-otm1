@@ -53,7 +53,7 @@ class DepartmentController extends Controller
     
            $department=new Department();
    
-        //    $department->user_id=auth()->id();
+          //    $department->user_id=auth()->id();
            $department->department=$request->text;
    
            $department->save();

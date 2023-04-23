@@ -7,9 +7,10 @@
 <style>
     .box{
        box-sizing: border-box !important;
-       width:300px;
+       width:250px;
        height:200px;
     }
+
 </style>
 
 @section('content')
@@ -31,30 +32,63 @@
       <div class="col-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title"> Elonni o'zgartirish</h4>
+            <h4 class="card-title"> Edit Product</h4>
 
-            <form method="POST"  action="{{ route('announcement.update') }}" enctype="multipart/form-data">
+            <form method="POST"  action="{{ route('teacher.update') }}" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
-                <input type="hidden" name="announcement_id" value="{{ $announcement->id }}">
-
-                   <div class="row">
-                    <div class="col-md-3">
-                        <div class="form-group" >
-                            <label for="exampleInputEmail3"></label>
-                            <input style="background-color:#2A3038; color:white;" name="date" value="{{$announcement->created_at?? "not fount address"}}"  type="text" class="form-control" id="exampleInputEmail3" placeholder="address" >
+                <input type="hidden" name="teacher_id" value="{{ $teacher->id }}">
+                  
+                  <div class="row">
+                    <div class="col-md-4 mt-2">
+                        <div class="form-group">
+                            {{-- @dd($user) --}}
+                            <label for="exampleInputName1"> User Name  </label>
+                            <input name="full_name"  value="{{$teacher->full_name ?? "not nime"}}"   type="text" class="form-control" id="exampleInputName1" placeholder=" Full Name" required>
                         </div>
                     </div>
-                    <div class="col-md-9">
-                        <div class="form-group" >
-                            {{-- @dd($user) --}}
-                            <textarea id="description_uz" style="background-color:#2A3038; color:white; height: 100px;"  name="description" class="form-control" style="height: 80px">
-                                {{$announcement->text?? "not discription"}}
-                              </textarea>
-                        </div>
+                    <div class="col-md-4 mt-2">
+                      <div class="form-group">
+                          <label for="exampleInputEmail3">Description</label>
+                          <input name="description" value="{{$teacher->description ?? "not nime"}}"    type="text" class="form-control" id="exampleInputEmail3" placeholder="description" required>
+                      </div>
+                    </div>
+                    <div class="col-md-4 ">
+                      @php
+                            $department=\App\Models\Department::get();                                  
+                      @endphp
+                      <label for=""> kafederani tanlash</label>
+                      <select class="form-control"  name="code" style="width:100%">
+                        @foreach($department as $value)
+                            <option   name="department_id"  value="{{$value->id }}" @if($teacher->department_id==$value->id ) selected @endif >
+                              {{$value->department}}
+                            </option>
+                          @endforeach
+                      </select>
                     </div>
                   </div>
-                <button type="submit" class="btn btn-primary float-right mt-5">Save</button>
+                  <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputPassword4" class="m-2">Fotos</label>
+                            {{-- <input type="" name=""  style="display:none"> --}}
+                            {{-- <input name="fotos"  type="file" enctype="multipart/form-data" required> --}}
+
+                            <img class="box"  src="{{ url('uploads/fotos/'.$teacher->foto) }}">
+
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="exampleInputPassword4" class="m-2"> New Photo</label>
+                            {{-- <input type="" name=""  style="display:none"> --}}
+                            <input name="fotos"  type="file" enctype="multipart/form-data" required>
+                    </div>
+                    </div>
+              </div>
+
+
+                <button type="submit" class="btn btn-primary float-right mr-2">Save</button>
                 {{-- <button class="btn btn-dark">Cancel</button> --}}
             </form>
           </div>
@@ -64,5 +98,4 @@
   </div>
 
 @endsection
-
 

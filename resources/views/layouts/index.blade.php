@@ -115,10 +115,11 @@
             </li>
             <li class="nav-item menu-items">
               <a class="nav-link" href="{{route('teacher.for_admin')}}">
+                  {{-- {{route('product.edit', $user->id)}} --}}
               <span class="menu-icon">
                   <i class="mdi mdi-playlist-play"></i>
               </span>
-              <span class="menu-title">O'qituvchilar</span>
+              <span class="menu-title">O'qituvchilar </span>
               </a>
             </li>
 

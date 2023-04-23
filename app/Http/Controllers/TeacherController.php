@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class TeacherController extends Controller
@@ -26,9 +28,48 @@ class TeacherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        if ($request->method() == 'POST')
+        {
+           // dd($request->all());
+            // $request->validate([
+            //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // ]);
+    
+            // dd($filename);
+    
+            if ($request->fotos) {
+                $filename = time() . '.'. $request->fotos->extension();
+                $path=public_path('uploads/fotos/');
+                $request->fotos->move($path, $filename);
+              }
+         
+    
+    
+           $teacher=new Teacher();
+   
+          //    $department->user_id=auth()->id();
+           $teacher->department_id=$request->code;
+           $teacher->full_name=$request->full_name;
+           $teacher->description=$request->description;
+           $teacher->foto=$filename;
+           $teacher->save();
+   
+   
+   
+           if (Auth::user()->staff=="admin") {
+               return redirect()->route("teacher.for_admin");
+           }
+           
+        //    return redirect()->route("announcement.tables_for_user");
+   
+        }
+        $department=DB::table('departments')->get();
+        // dd($department);
+        // dd($users);
+        return view('admin.teacher.create',compact('department'));
+            // return view('admin..create');
     }
 
     /**
@@ -72,7 +113,11 @@ class TeacherController extends Controller
      */
     public function edit($id)
     {
-        //
+        $teacher=DB::table('teachers')->where('id',$id)->first();
+
+        //    dd($id);
+        //    return 'came';
+        return view('admin.teacher.edit',compact('teacher'));
     }
 
     /**
@@ -82,9 +127,33 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+       //dd($request->all());
+
+        if ($request->fotos) {
+            $filename = time() . '.'. $request->fotos->extension();
+            $path=public_path('uploads/fotos/');
+            $request->fotos->move($path, $filename);
+          }
+     
+
+
+       $teacher=Teacher::where('id',$request->teacher_id)->first();
+
+      //    $department->user_id=auth()->id();
+       $teacher->department_id=$request->code;
+       $teacher->full_name=$request->full_name;
+       $teacher->description=$request->description;
+       $teacher->foto=$filename;
+       $teacher->save();
+
+
+
+       if (Auth::user()->staff=="admin") {
+           return redirect()->route("teacher.for_admin");
+       }
+
     }
 
     /**
@@ -95,6 +164,12 @@ class TeacherController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $department=Teacher::findOrFail($id);
+        $department->delete();
+
+
+        if (Auth::user()->staff=="admin") {
+            return redirect()->route("teacher.for_admin");
+        }
     }
 }
