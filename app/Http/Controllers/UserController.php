@@ -173,9 +173,14 @@ class UserController extends Controller
     $users=User::where('staff','user')->latest()->get();
     // dd($users);
 
-    if ($request->search) {
-        // dd($request->search);
-        $users=DB::table('users')->where('inn','LIKE','%'.$request->search."%")->get();
+    if ($request->search || $request->search_year) {
+        if ($request->search) {
+            $users=DB::table('users')->where('inn','LIKE','%'.$request->search."%")->get();
+        }
+        if ($request->search_year) {
+            
+            $users=DB::table('users')->where('date','LIKE','%'.$request->search_year."%")->get();
+        }
     }
     return view('frontend.front.user_list', compact('users'));
    }
@@ -294,7 +299,9 @@ class UserController extends Controller
             $user->foto=$filename;
             $user->description=$request->description;
             $user->inn=$request->inn;
+            $user->serias_number=$request->serias_number;
             $user->phone_number=$request->phone_number;
+            $user->date=$request->and_year;
             $user->login=$request->login;
             $user->password=$request->password;
             $user->group_id=$request->group_id;
@@ -548,10 +555,13 @@ class UserController extends Controller
    public function main()
    {
         $users=User::get();
-        // $news=DB::table('news')->get();
+        $data = DB::table('users')
+            ->join('announcements', 'users.id', '=', 'announcements.user_id')
+            ->select('users.group_id','users.full_name', 'announcements.text')
+            ->get();
         // dd($news);
         // dd($users);
-        return view('frontend.front.main',compact('users',));
+        return view('frontend.front.main',compact('users','data'));
 
    }
 
@@ -581,6 +591,21 @@ class UserController extends Controller
 
 
    }
+
+
+   public function usersPhotos()
+   {
+        
+        return 'came';
+        // return view('frontend.front.education',compact('education'));
+
+
+   }
+
+   
+
+
+
 
 
    public function newDestroy($id)

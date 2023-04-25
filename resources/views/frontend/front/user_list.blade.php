@@ -31,19 +31,34 @@
       <div class="card selection" style="background-color:white">
         <div class="card-body ">
           <h4 class="card-title">Users</h4>
-          <form action="" enctype="multipart/form-data">
-            @csrf
-            @method('GET')
-            <div class="row">
-                <div class="col-md-9">
 
-                </div>
-                <div class="col-md-3">
-                    <input type="search" class="form-control" style="float:right" placeholder="User INN" name="search">
+          <div class="row">
+            <div class="col-md-7">
 
-                </div>
             </div>
-          </form>
+            <div class="col-md-2">
+              <form action="" enctype="multipart/form-data">
+                @csrf
+                @method('GET')
+               
+                <input type="text" class="form-control" style="float:right" placeholder="Bitirgan yili" name="search_year">
+              </form>
+              
+            </div>
+            <div class="col-md-3">
+              <form action="" enctype="multipart/form-data">
+                @csrf
+                @method('GET')
+
+                <input type="search" class="form-control" style="float:right" placeholder="User INN" name="search">
+               
+              </form>
+
+            </div>
+        </div>
+
+
+          
           <div class="table-responsive">
             <table class="table " >
               <thead>
@@ -54,8 +69,9 @@
                     <th>User Name</th>
                     <th>Phone Number</th>
                     <th>Inn</th>
+                    <th>Pasport Raqami</th>
                     <th>Email</th>
-                    <th>Date</th>
+                    <th>Bitirgan yili</th>
                 </tr>
               </thead>
               <tbody>
@@ -78,8 +94,9 @@
                             <td>{{$user->full_name}}</td>
                             <td>{{$user->phone_number}}</td>
                             <td>{{$user->inn}}</td>
+                            <td>{{$user->serias_number}}</td>
                             <td>{{$user->email}}</td>
-                            <td>{{$user->created_at}}</td>
+                            <td>{{$user->date}}</td>
                         </tr>
                     @endif
                 @endforeach

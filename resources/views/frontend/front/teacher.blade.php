@@ -1,7 +1,7 @@
 @extends('frontend.layouts.index')
 
 @section('title')
-  Elonlar
+Professor o`qituvchilar
 @endsection
 
 <style>
@@ -19,7 +19,7 @@
 </style>
 @section('content')
 <div class="page-header">
-    <h3 class="page-title">Bitiruvchilar jadvali</h3>
+    <h3 class="page-title">Professor o`qituvchilar jadvali</h3>
     
 </div>
 <div class="row " >
@@ -36,9 +36,9 @@
           <div class="row my-3 text-center">
               @foreach ($teachers as $teacher)
 
-                <div class="col-md-4 ">
+                <div class="col-md-4   ">
                 
-                    <div class="card " style="border: 1px solid blue;  background: #ffffff; ">
+                    <div class="card m-2" style="border: 2px solid blue;  background: #ffffff;    ">
                       <img class="img"   src="{{ url('uploads/fotos/'.$teacher->foto) }}">
                          {{$teacher->full_name}} <br>
                          {{$teacher->description}}

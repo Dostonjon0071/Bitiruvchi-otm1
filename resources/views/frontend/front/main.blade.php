@@ -8,6 +8,13 @@
 <style>
 </style>
 @section('content')
+
+
+
+
+
+
+
 <div class=" text-black " style="text-align: center !important">
     <h2 class=" text-blue"> OTM bitiruvchilari uchun web-texnologiyalari asosida ma`lumotlar bazasini boshqarish tizimini yaratish>></h2>
 </div>

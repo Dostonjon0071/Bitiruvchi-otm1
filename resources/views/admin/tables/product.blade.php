@@ -41,7 +41,9 @@
                     <th>User Name</th>
                     <th>Phone Number</th>
                     <th>Inn</th>
+                    <th>Passport raqami</th>
                     <th>Email</th>
+                    <th>Bitirgan yili</th>
                     <th>Date</th>
                     <th>Options </th>
                 </tr>
@@ -66,7 +68,9 @@
                             <td>{{$user->full_name}}</td>
                             <td>{{$user->phone_number}}</td>
                             <td>{{$user->inn}}</td>
+                            <td>{{$user->serias_number}}</td>
                             <td>{{$user->email}}</td>
+                            <td>{{$user->date}}</td>
                             <td>{{$user->created_at}}</td>
                             <td>
                                 <a href="{{route('product.show', $user->id)}}" class="btn btn-soft-danger btn-icon btn-circle btn-sm"  title="show">

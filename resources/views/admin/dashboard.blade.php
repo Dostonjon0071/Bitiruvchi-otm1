@@ -17,7 +17,7 @@ dashboard
                   <div class="col-8 col-sm-12 col-xl-8 my-auto">
                     <div class="d-flex d-sm-block d-md-flex align-items-center">
                       <h2 class="mb-0">{{$count_day?? ""}}</h2>
-                      <p class="text-success ml-2 mb-0 font-weight-medium">Products</p>
+                      <p class="text-success ml-2 mb-0 font-weight-medium">Users</p>
                     </div>
                     <h6 class="text-muted font-weight-normal"> user quantity in Orders Today</h6>
                   </div>
@@ -37,7 +37,7 @@ dashboard
               <div class="col-8 col-sm-12 col-xl-8 my-auto">
                 <div class="d-flex d-sm-block d-md-flex align-items-center">
                   <h2 class="mb-0">{{$count_history?? ""}} </h2>
-                  <p class="text-success ml-2 mb-0 font-weight-medium">Products</p>
+                  <p class="text-success ml-2 mb-0 font-weight-medium">Users</p>
                 </div>
                 <h6 class="text-muted font-weight-normal">user quantity histories</h6>
               </div>

@@ -34,7 +34,7 @@
                 <span class="menu-icon">
                     <i class="mdi mdi-speedometer"></i>
                 </span>
-                <span class="menu-title">Home</span>
+                <span class="menu-title">Bosh oyna</span>
                 </a>
             </li>
             <li class="nav-item menu-items">
@@ -53,7 +53,7 @@
                 <span class="menu-icon">
                     <i class="mdi mdi-playlist-play"></i>
                 </span>
-                <span class="menu-title">DB information </span>
+                <span class="menu-title">Berilganlar bazasi </span>
                 </a>
             </li>
             <li class="nav-item menu-items">
@@ -61,9 +61,18 @@
               <span class="menu-icon">
                   <i class="mdi mdi-playlist-play"></i>
               </span>
-              <span class="menu-title">Talim</span>
+              <span class="menu-title">Professor o`qituvchilar</span>
               </a>
           </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{route('users.photos')}}">
+            <span class="menu-icon">
+                <i class="mdi mdi-playlist-play"></i>
+            </span>
+            <span class="menu-title">Foto albom</span>
+            </a>
+        </li>
+        
           
 
         </ul>

@@ -102,6 +102,9 @@ Route::post('/announcement/table/update','AnnouncementController@announcementUpd
 Route::get('/announcement/table/destroy/{id}','AnnouncementController@destroy')->name('announcement.destroy');
 
 
+// Users Photos for front
+Route::get('users/photos','UserController@usersPhotos')->name('users.photos');
+
  //announcement->for user
 Route::get('/announcement/table/user','AnnouncementController@userAnnouncement')->name('announcement.tables_for_user');
 
